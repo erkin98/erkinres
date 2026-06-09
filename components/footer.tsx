@@ -14,7 +14,7 @@ export default function Footer() {
             {"<EQ />"}
           </a>
           <p className="mt-1 text-xs text-muted-foreground">
-            Software Engineer & AI Architect
+            Senior Software Engineer
           </p>
         </div>
 

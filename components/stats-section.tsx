@@ -4,12 +4,10 @@ import { useRef, useEffect, useState } from "react"
 import { useInView } from "@/hooks/use-in-view"
 
 const stats = [
-  { label: "Years Experience", value: "4+", suffix: "" },
-  { label: "AI Agents Built", value: "14", suffix: "" },
-  { label: "Lines of Code", value: "15K", suffix: "+" },
-  { label: "Test Coverage", value: "80", suffix: "%+" },
-  { label: "Sprint Completion", value: "90", suffix: "%+" },
-  { label: "Production Incidents Resolved", value: "50", suffix: "+" },
+  { label: "Years Experience", value: "4", suffix: "+" },
+  { label: "Merged Open-Source PRs", value: "6", suffix: "" },
+  { label: "Upstream Orgs Contributed", value: "3", suffix: "" },
+  { label: "Public Repositories", value: "60", suffix: "+" },
 ]
 
 function AnimatedNumber({

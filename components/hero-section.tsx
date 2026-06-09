@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 const roles = [
-  "Software Engineer",
-  "AI Infrastructure Builder",
-  "Multi-Agent Architect",
-  "Full-Stack Developer",
+  "Senior Software Engineer",
+  "Full-Stack Engineer",
+  "AI / LLM Engineer",
+  "Open-Source Contributor",
 ];
 
 export default function HeroSection() {
@@ -74,9 +74,10 @@ export default function HeroSection() {
         </div>
 
         <p className="mx-auto mb-10 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-          Building production-grade AI systems with multi-agent orchestration,
-          RAG pipelines, and scalable full-stack architectures. 4+ years
-          shipping real software at Technosec.io.
+          Senior full-stack engineer building a JupyterLab-based analytics
+          platform and notebook-native LLM tooling. 4+ years shipping production
+          software at Technosec.io, with merged contributions to JupyterLab and
+          Jupyter-AI.
         </p>
 
         <div className="mb-16 flex items-center justify-center gap-4">

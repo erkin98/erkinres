@@ -27,17 +27,17 @@ const skillDomains = [
     icon: Brain,
     accent: "hsl(175, 70%, 50%)",
     context:
-      "Architected a 14-agent platform with autonomous decision-making, conflict resolution, and persistent memory.",
+      "Built Rovanaut, a notebook-native LLM assistant — a LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
     skills: [
       { name: "LangGraph", icon: Workflow, tag: "Core" },
       { name: "LangChain", icon: Network, tag: "Core" },
-      { name: "Multi-Agent Systems", icon: Bot, tag: "Core" },
-      { name: "RAG Pipelines", icon: Search, tag: "Core" },
+      { name: "Tool-Calling Agents", icon: Bot, tag: "Core" },
+      { name: "Vector-Store Search", icon: Search, tag: "Core" },
       { name: "Prompt Engineering", icon: MessageSquareCode, tag: "Advanced" },
       { name: "Claude API", icon: Cpu, tag: "Provider" },
       { name: "OpenAI API", icon: Cpu, tag: "Provider" },
       { name: "Ollama", icon: Cpu, tag: "Provider" },
-      { name: "Embeddings & Vectors", icon: Database, tag: "Data" },
+      { name: "Human-in-the-Loop", icon: Database, tag: "Core" },
       { name: "MCP Protocol", icon: Layers, tag: "Advanced" },
     ],
   },
@@ -62,7 +62,7 @@ const skillDomains = [
     icon: TestTubes,
     accent: "hsl(160, 50%, 45%)",
     context:
-      "Built 200+ E2E tests with 80%+ coverage, reducing QA cycles from 3 days to under 4 hours.",
+      "Real-fixture test suites (~1,000 tests) and integration-first QA wired into CI/CD.",
     skills: [
       { name: "Selenium", icon: Globe, tag: "E2E" },
       { name: "Playwright", icon: Globe, tag: "E2E" },
@@ -92,30 +92,33 @@ const skillDomains = [
 const milestones = [
   {
     year: "2021",
-    event: "Joined Technosec.io as Software Engineer",
-    detail: "Started building production web apps and test infrastructure.",
+    event: "Joined Technosec.io",
+    detail:
+      "Started building the JupyterLab-based analytics platform and its test infrastructure.",
   },
   {
     year: "2022",
-    event: "Scaled test automation to 200+ E2E tests",
-    detail: "Achieved 80%+ coverage across Chrome, Firefox, and Safari.",
+    event: "Founded the JupyterLab frontend extension",
+    detail:
+      "Custom file browser, a React/TypeScript design system, and the core plugin (dominant author).",
   },
   {
     year: "2023",
-    event: "JupyterLab extensions adopted by 90%+ team",
+    event: "React Flow editor + AG Grid migration",
     detail:
-      "Open-source React/TypeScript plugins reducing repetitive tasks by 35%.",
+      "Built a custom pipeline-graph editor and led an AG Grid major-version migration (v27 → v35).",
   },
   {
     year: "2024",
-    event: "Architected multi-agent AI platform",
-    detail: "14 autonomous agents, 15K LoC, LangGraph state machines.",
+    event: "Cross-origin notebook ↔ analytics integration",
+    detail:
+      "Three hosting modes behind an HMAC-SHA256 authenticated RPC bridge.",
   },
   {
     year: "2025",
-    event: "AI-powered dev workflows with Claude & MCP",
+    event: "Built Rovanaut + merged open-source contributions",
     detail:
-      "Integrating AI into CI/CD lifecycle with custom MCP servers and hooks.",
+      "Notebook-native LLM agent (LangGraph, MCP, OpenAI vector search); merged PRs into JupyterLab core and Jupyter-AI.",
   },
 ]
 

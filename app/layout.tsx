@@ -14,9 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Erkin Qarayev | Software Engineer & AI Architect',
+  title: 'Erkin Qarayev | Senior Software Engineer',
   description:
-    'Portfolio of Erkin Qarayev — Software Engineer and AI infrastructure builder with expertise in multi-agent orchestration, RAG pipelines, and full-stack development.',
+    'Portfolio of Erkin Qarayev — Senior Software Engineer building a JupyterLab-based analytics platform and notebook-native LLM tooling (LangGraph agents, MCP), with merged contributions to JupyterLab and Jupyter-AI.',
 }
 
 export const viewport: Viewport = {

@@ -7,27 +7,27 @@ import { useInView } from "@/hooks/use-in-view"
 const highlights = [
   {
     icon: Brain,
-    title: "AI & Multi-Agent Systems",
+    title: "LLM Agents & Tooling",
     description:
-      "Architected a 15K LoC multi-agent orchestration platform with 14 autonomous agents, LangGraph state machines, and intelligent LLM routing.",
+      "Built Rovanaut, a notebook-native LLM assistant — a LangChain/LangGraph tool-calling agent with human-in-the-loop approval and a full Model Context Protocol client.",
   },
   {
     icon: Server,
-    title: "RAG & Infrastructure",
+    title: "Retrieval & Safety",
     description:
-      "Built full RAG pipelines with document chunking, embedding generation, vector storage, and semantic search across multiple file formats.",
+      "OpenAI vector-store file search, cross-session memory, and an AST-based safety gate that blocks unsafe imports and calls in model-generated code.",
   },
   {
     icon: Code2,
     title: "Full-Stack Development",
     description:
-      "Next.js, React, FastAPI, and TypeScript expertise. Real-time WebSocket streaming, Zustand state management, and clean architecture.",
+      "Python/FastAPI/Tornado backends and React/TypeScript frontends — custom JupyterLab extensions, a React Flow pipeline editor, and real-time WebSocket streaming.",
   },
   {
     icon: TestTubes,
-    title: "Testing & DevOps",
+    title: "Testing & Security",
     description:
-      "Comprehensive test automation with 80%+ coverage. CI/CD pipelines reducing deployment from hours to under 20 minutes.",
+      "Real-fixture test suites and CI/CD, plus security hardening — HMAC-authenticated boundaries, SSRF/CSRF defense, and per-tenant isolation.",
   },
 ]
 
@@ -54,9 +54,9 @@ export default function AboutSection() {
             <span className="text-muted-foreground">that solve real problems.</span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Software Engineer with 4+ years at Technosec.io, specializing in AI
-            infrastructure, multi-agent orchestration, and production-grade
-            systems. Open-source contributor to the JupyterLab ecosystem.
+            Senior Software Engineer with 4+ years at Technosec.io, building a
+            JupyterLab-based analytics platform and notebook-native LLM tooling.
+            Open-source contributor to JupyterLab and the Jupyter-AI ecosystem.
           </p>
         </div>
 
