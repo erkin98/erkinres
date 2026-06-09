@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { Github, Linkedin, Mail, Send, ArrowUpRight } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
+import { useRef } from "react";
+import { Github, Linkedin, Mail, Send, ArrowUpRight } from "lucide-react";
+import { useInView } from "@/hooks/use-in-view";
 
 const contactLinks = [
   {
@@ -14,20 +14,20 @@ const contactLinks = [
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/erkinqara",
-    href: "https://github.com/erkinqara",
+    value: "github.com/erkin98",
+    href: "https://github.com/erkin98",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/erkinqarayev",
-    href: "https://linkedin.com/in/erkinqarayev",
+    value: "linkedin.com/in/garayev",
+    href: "https://linkedin.com/in/garayev",
   },
-]
+];
 
 export default function ContactSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef)
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
 
   return (
     <section id="contact" ref={sectionRef} className="relative px-6 py-32">
@@ -93,5 +93,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="https://github.com/erkinqara"
+            href="https://github.com/erkin98"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -29,7 +29,7 @@ export default function Footer() {
             <Github size={16} />
           </a>
           <a
-            href="https://linkedin.com/in/erkinqarayev"
+            href="https://linkedin.com/in/garayev"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -51,5 +51,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

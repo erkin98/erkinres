@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { useEffect, useState } from "react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 const roles = [
   "Software Engineer",
   "AI Infrastructure Builder",
   "Multi-Agent Architect",
   "Full-Stack Developer",
-]
+];
 
 export default function HeroSection() {
-  const [currentRole, setCurrentRole] = useState(0)
-  const [displayText, setDisplayText] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const role = roles[currentRole]
+    const role = roles[currentRole];
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
           if (displayText.length < role.length) {
-            setDisplayText(role.slice(0, displayText.length + 1))
+            setDisplayText(role.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 2000)
+            setTimeout(() => setIsDeleting(true), 2000);
           }
         } else {
           if (displayText.length > 0) {
-            setDisplayText(displayText.slice(0, -1))
+            setDisplayText(displayText.slice(0, -1));
           } else {
-            setIsDeleting(false)
-            setCurrentRole((prev) => (prev + 1) % roles.length)
+            setIsDeleting(false);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
           }
         }
       },
-      isDeleting ? 40 : 80
-    )
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, currentRole])
+      isDeleting ? 40 : 80,
+    );
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRole]);
 
   return (
     <section
@@ -64,7 +64,12 @@ export default function HeroSection() {
             aria-atomic="true"
           >
             {displayText}
-            <span className="animate-pulse-glow ml-0.5 text-primary" aria-hidden="true">|</span>
+            <span
+              className="animate-pulse-glow ml-0.5 text-primary"
+              aria-hidden="true"
+            >
+              |
+            </span>
           </p>
         </div>
 
@@ -91,7 +96,7 @@ export default function HeroSection() {
 
         <div className="flex items-center justify-center gap-6">
           <a
-            href="https://github.com/erkinqara"
+            href="https://github.com/erkin98"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors duration-300 hover:text-primary"
@@ -100,7 +105,7 @@ export default function HeroSection() {
             <Github size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/erkinqarayev"
+            href="https://linkedin.com/in/garayev"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors duration-300 hover:text-primary"
@@ -126,5 +131,5 @@ export default function HeroSection() {
         <ArrowDown size={20} className="animate-bounce" />
       </a>
     </section>
-  )
+  );
 }
