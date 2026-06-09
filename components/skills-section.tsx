@@ -27,7 +27,7 @@ const skillDomains = [
     icon: Brain,
     accent: "hsl(175, 70%, 50%)",
     context:
-      "Built Rovanaut, a notebook-native LLM assistant — a LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
+      "Develop Rovanaut, a notebook-native LLM assistant — a LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
     skills: [
       { name: "LangGraph", icon: Workflow, tag: "Core" },
       { name: "LangChain", icon: Network, tag: "Core" },
@@ -94,19 +94,19 @@ const milestones = [
     year: "2021",
     event: "Joined Technosec.io",
     detail:
-      "Started building the JupyterLab-based analytics platform and its test infrastructure.",
+      "Began working on the JupyterLab-based analytics platform and its test infrastructure.",
   },
   {
     year: "2022",
-    event: "Founded the JupyterLab frontend extension",
+    event: "Core maintainer of the JupyterLab frontend extension",
     detail:
-      "Custom file browser, a React/TypeScript design system, and the core plugin (dominant author).",
+      "Custom file browser, a React/TypeScript design system, and the core plugin (a primary author).",
   },
   {
     year: "2023",
     event: "React Flow editor + AG Grid migration",
     detail:
-      "Built a custom pipeline-graph editor and led an AG Grid major-version migration (v27 → v35).",
+      "Developed a custom pipeline-graph editor and led an AG Grid major-version migration (v27 → v35).",
   },
   {
     year: "2024",
@@ -116,7 +116,7 @@ const milestones = [
   },
   {
     year: "2025",
-    event: "Built Rovanaut + merged open-source contributions",
+    event: "Developed Rovanaut + merged open-source contributions",
     detail:
       "Notebook-native LLM agent (LangGraph, MCP, OpenAI vector search); merged PRs into JupyterLab core and Jupyter-AI.",
   },

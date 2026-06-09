@@ -74,7 +74,7 @@ export default function HeroSection() {
         </div>
 
         <p className="mx-auto mb-10 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-          Senior full-stack engineer building a JupyterLab-based analytics
+          Senior full-stack engineer maintaining and extending a JupyterLab-based analytics
           platform and notebook-native LLM tooling. 4+ years shipping production
           software at Technosec.io, with merged contributions to JupyterLab and
           Jupyter-AI.

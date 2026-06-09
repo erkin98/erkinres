@@ -9,7 +9,7 @@ const highlights = [
     icon: Brain,
     title: "LLM Agents & Tooling",
     description:
-      "Built Rovanaut, a notebook-native LLM assistant — a LangChain/LangGraph tool-calling agent with human-in-the-loop approval and a full Model Context Protocol client.",
+      "Develop Rovanaut, a notebook-native LLM assistant — a LangChain/LangGraph tool-calling agent with human-in-the-loop approval and a full Model Context Protocol client.",
   },
   {
     icon: Server,
@@ -54,7 +54,7 @@ export default function AboutSection() {
             <span className="text-muted-foreground">that solve real problems.</span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Senior Software Engineer with 4+ years at Technosec.io, building a
+            Senior Software Engineer with 4+ years at Technosec.io, maintaining and extending a
             JupyterLab-based analytics platform and notebook-native LLM tooling.
             Open-source contributor to JupyterLab and the Jupyter-AI ecosystem.
           </p>
