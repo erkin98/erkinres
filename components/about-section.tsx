@@ -4,7 +4,7 @@ const MODULES = [
   {
     num: "01",
     title: "LLM Agents & Tooling",
-    body: "Built Rovanaut, a notebook-native LLM assistant — a LangChain/LangGraph tool-calling agent with human-in-the-loop approval and a full Model Context Protocol client.",
+    body: "Built Datanout, a notebook-native LLM assistant — a LangChain/LangGraph tool-calling agent with human-in-the-loop approval and a full Model Context Protocol client.",
   },
   {
     num: "02",

@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     featured: true,
     eyebrow: "JUPYTERLAB + JUPYTER AI · LANGCHAIN / LANGGRAPH",
-    title: "Rovanaut — Notebook-Native LLM Assistant",
+    title: "Datanout — Notebook-Native LLM Assistant",
     summary:
       "A JupyterLab extension that drops an AI assistant into the notebook and lets it call tools — run cells, edit notebooks, read files, reach external servers — to do real work. Shipped as a Python server extension plus an NPM frontend, auto-discovered via the jupyter_ai.personas entry point.",
     details: [

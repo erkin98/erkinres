@@ -4,7 +4,7 @@ const TAGS = ["LangGraph", "MCP", "FastAPI", "Tornado", "React", "TypeScript", "
 
 const BULLETS = [
   "Primary author of the platform's JupyterLab frontend extension — custom file browser, a dozen-component React/TypeScript design system, and the core plugin entry point",
-  "Built Rovanaut, a notebook-native LLM assistant — LangChain/LangGraph tool-calling agent, human-in-the-loop approval with resumable persisted interrupts, a full Model Context Protocol client, OpenAI vector-store file search, and AST-based code safety",
+  "Built Datanout, a notebook-native LLM assistant — LangChain/LangGraph tool-calling agent, human-in-the-loop approval with resumable persisted interrupts, a full Model Context Protocol client, OpenAI vector-store file search, and AST-based code safety",
   "Architected a cross-origin notebook ↔ analytics integration across 3 hosting modes, secured by an HMAC-SHA256 authenticated RPC bridge",
   "Built a custom React Flow pipeline-graph editor and led an AG Grid major-version migration (v27 → v35)",
   "Hardened filesystem, persistence, and lifecycle layers against path-traversal, SSRF, and environment-variable injection; enforced per-tenant session isolation",

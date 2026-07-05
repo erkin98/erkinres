@@ -25,7 +25,7 @@ const entries: Entry[] = [
   },
   {
     year: "2025",
-    title: "Rovanaut + merged OSS",
+    title: "Datanout + merged OSS",
     text: "Notebook-native LLM agent; merged PRs into JupyterLab core and Jupyter-AI.",
   },
 ]

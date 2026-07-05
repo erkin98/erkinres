@@ -8,7 +8,7 @@ const categories: SkillCategory[] = [
     title: "AI & LLM Orchestration",
     swatch: "#2dd4c8",
     description:
-      "Rovanaut — LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
+      "Datanout — LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
     chips: [
       { label: "LangGraph", tier: "CORE" },
       { label: "LangChain", tier: "CORE" },
