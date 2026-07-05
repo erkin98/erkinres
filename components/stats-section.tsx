@@ -1,89 +1,81 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useInView } from "@/hooks/use-in-view"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
-const stats = [
-  { label: "Years Experience", value: "4", suffix: "+" },
-  { label: "Merged Open-Source PRs", value: "6", suffix: "" },
-  { label: "Upstream Orgs Contributed", value: "3", suffix: "" },
-  { label: "Public Repositories", value: "60", suffix: "+" },
+const STATS = [
+  { target: 4, suffix: "+", label: "YEARS_EXPERIENCE" },
+  { target: 5, suffix: "", label: "MERGED_OSS_PRS" },
+  { target: 3, suffix: "", label: "UPSTREAM_ORGS" },
+  { target: 60, suffix: "+", label: "PUBLIC_REPOS" },
 ]
-
-function AnimatedNumber({
-  value,
-  suffix,
-  animate,
-}: {
-  value: string
-  suffix: string
-  animate: boolean
-}) {
-  const [display, setDisplay] = useState("0")
-  const numericPart = parseInt(value.replace(/\D/g, ""), 10)
-  const letterSuffix = value.replace(/[0-9]/g, "")
-
-  useEffect(() => {
-    if (!animate) return
-    if (isNaN(numericPart)) {
-      setDisplay(value)
-      return
-    }
-
-    let start = 0
-    const duration = 1500
-    const startTime = Date.now()
-
-    const tick = () => {
-      const elapsed = Date.now() - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      start = Math.floor(eased * numericPart)
-      setDisplay(`${start}${letterSuffix}`)
-      if (progress < 1) requestAnimationFrame(tick)
-    }
-    requestAnimationFrame(tick)
-  }, [animate, numericPart, value, letterSuffix])
-
-  return (
-    <span className="font-mono text-3xl font-bold text-primary md:text-4xl">
-      {display}
-      {suffix}
-    </span>
-  )
-}
 
 export default function StatsSection() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref)
+  const prefersReducedMotion = useReducedMotion()
+  const [values, setValues] = useState<number[]>([0, 0, 0, 0])
+
+  useEffect(() => {
+    if (!isInView) return
+    if (prefersReducedMotion) {
+      setValues(STATS.map((s) => s.target))
+      return
+    }
+    const t0 = performance.now()
+    const dur = 1400
+    let raf = 0
+    const step = (now: number) => {
+      const p = Math.min((now - t0) / dur, 1)
+      const e = 1 - Math.pow(1 - p, 3)
+      setValues(STATS.map((s) => Math.floor(s.target * e)))
+      if (p < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [isInView, prefersReducedMotion])
 
   return (
-    <section ref={ref} className="relative px-6 py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="glass-card rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={`text-center transition-all duration-700 ${
-                  isInView
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <AnimatedNumber
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  animate={isInView}
-                />
-                <p className="mt-2 text-xs leading-snug text-muted-foreground">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+    <section ref={ref} style={{ padding: "8px clamp(20px,4.5vw,48px) 0" }}>
+      <div
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
+          gap: 16,
+        }}
+      >
+        {STATS.map((s, i) => (
+          <div
+            key={s.label}
+            className="cc-corner-tl"
+            style={{
+              position: "relative",
+              background: "#10151d",
+              border: "1px solid rgba(148,168,190,.16)",
+              borderRadius: 8,
+              padding: "22px 24px",
+            }}
+          >
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 34, fontWeight: 700, color: "#2dd4c8" }}>
+              {values[i]}
+              {s.suffix}
+            </span>
+            <p
+              style={{
+                margin: "6px 0 0",
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                letterSpacing: ".12em",
+                color: "#758495",
+              }}
+            >
+              {s.label}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   )

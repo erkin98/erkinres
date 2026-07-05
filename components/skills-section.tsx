@@ -1,300 +1,130 @@
 "use client"
 
-import { useRef } from "react"
-import {
-  Brain,
-  Code2,
-  TestTubes,
-  Container,
-  Workflow,
-  MessageSquareCode,
-  Database,
-  Globe,
-  Cpu,
-  Layers,
-  GitBranch,
-  Shield,
-  Zap,
-  Search,
-  Bot,
-  Network,
-} from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
+type SkillChip = { label: string; tier: string }
+type SkillCategory = { title: string; swatch: string; description: string; chips: SkillChip[] }
 
-const skillDomains = [
+const categories: SkillCategory[] = [
   {
     title: "AI & LLM Orchestration",
-    icon: Brain,
-    accent: "hsl(175, 70%, 50%)",
-    context:
-      "Develop Rovanaut, a notebook-native LLM assistant — a LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
-    skills: [
-      { name: "LangGraph", icon: Workflow, tag: "Core" },
-      { name: "LangChain", icon: Network, tag: "Core" },
-      { name: "Tool-Calling Agents", icon: Bot, tag: "Core" },
-      { name: "Vector-Store Search", icon: Search, tag: "Core" },
-      { name: "Prompt Engineering", icon: MessageSquareCode, tag: "Advanced" },
-      { name: "Claude API", icon: Cpu, tag: "Provider" },
-      { name: "OpenAI API", icon: Cpu, tag: "Provider" },
-      { name: "Ollama", icon: Cpu, tag: "Provider" },
-      { name: "Human-in-the-Loop", icon: Database, tag: "Core" },
-      { name: "MCP Protocol", icon: Layers, tag: "Advanced" },
+    swatch: "#2dd4c8",
+    description:
+      "Rovanaut — LangGraph tool-calling agent with human-in-the-loop control, an MCP client, and AST-based safety.",
+    chips: [
+      { label: "LangGraph", tier: "CORE" },
+      { label: "LangChain", tier: "CORE" },
+      { label: "Tool-Calling Agents", tier: "CORE" },
+      { label: "MCP Protocol", tier: "ADV" },
+      { label: "Vector-Store Search", tier: "CORE" },
+      { label: "Human-in-the-Loop", tier: "CORE" },
+      { label: "Prompt Engineering", tier: "ADV" },
+      { label: "Claude / OpenAI / Ollama", tier: "PROV" },
     ],
   },
   {
     title: "Languages & Frameworks",
-    icon: Code2,
-    accent: "hsl(200, 60%, 50%)",
-    context:
-      "Full-stack development with Python and TypeScript, building real-time dashboards and FastAPI backends.",
-    skills: [
-      { name: "Python", icon: Code2, tag: "Primary" },
-      { name: "TypeScript", icon: Code2, tag: "Primary" },
-      { name: "React", icon: Globe, tag: "Frontend" },
-      { name: "Next.js", icon: Globe, tag: "Frontend" },
-      { name: "FastAPI", icon: Zap, tag: "Backend" },
-      { name: "Pydantic", icon: Shield, tag: "Backend" },
-      { name: "JupyterLab", icon: Layers, tag: "Tooling" },
+    swatch: "#38bdf8",
+    description: "Full-stack development with Python and TypeScript — real-time dashboards and FastAPI backends.",
+    chips: [
+      { label: "Python", tier: "PRIMARY" },
+      { label: "TypeScript", tier: "PRIMARY" },
+      { label: "React", tier: "FRONT" },
+      { label: "Next.js", tier: "FRONT" },
+      { label: "FastAPI", tier: "BACK" },
+      { label: "Pydantic", tier: "BACK" },
+      { label: "Tornado", tier: "BACK" },
+      { label: "JupyterLab", tier: "TOOLING" },
     ],
   },
   {
     title: "Testing & Quality",
-    icon: TestTubes,
-    accent: "hsl(160, 50%, 45%)",
-    context:
-      "Real-fixture test suites (~1,000 tests) and integration-first QA wired into CI/CD.",
-    skills: [
-      { name: "Selenium", icon: Globe, tag: "E2E" },
-      { name: "Playwright", icon: Globe, tag: "E2E" },
-      { name: "pytest", icon: TestTubes, tag: "Unit" },
-      { name: "Vitest", icon: TestTubes, tag: "Unit" },
-      { name: "Visual Regression", icon: Layers, tag: "QA" },
-      { name: "E2E Automation", icon: Workflow, tag: "QA" },
+    swatch: "#2dd4c8",
+    description: "Real-fixture test suites (~1,000 tests) and integration-first QA wired into CI/CD.",
+    chips: [
+      { label: "pytest", tier: "UNIT" },
+      { label: "Vitest", tier: "UNIT" },
+      { label: "Playwright", tier: "E2E" },
+      { label: "Selenium", tier: "E2E" },
+      { label: "Visual Regression", tier: "QA" },
+      { label: "E2E Automation", tier: "QA" },
     ],
   },
   {
     title: "DevOps & Infrastructure",
-    icon: Container,
-    accent: "hsl(200, 60%, 50%)",
-    context:
-      "CI/CD pipelines reducing deployment from hours to minutes, with parallel execution and Docker containerization.",
-    skills: [
-      { name: "CI/CD Pipelines", icon: GitBranch, tag: "Core" },
-      { name: "Jenkins", icon: Workflow, tag: "CI" },
-      { name: "GitLab CI/CD", icon: GitBranch, tag: "CI" },
-      { name: "Docker", icon: Container, tag: "Infra" },
-      { name: "RESTful APIs", icon: Globe, tag: "API" },
-      { name: "WebSocket", icon: Zap, tag: "API" },
+    swatch: "#38bdf8",
+    description: "CI/CD pipelines reducing deployment from hours to minutes, with parallel execution and Docker.",
+    chips: [
+      { label: "CI/CD Pipelines", tier: "CORE" },
+      { label: "Jenkins", tier: "CI" },
+      { label: "GitLab CI/CD", tier: "CI" },
+      { label: "Docker", tier: "INFRA" },
+      { label: "RESTful APIs", tier: "API" },
+      { label: "WebSocket", tier: "API" },
     ],
   },
 ]
 
-const milestones = [
-  {
-    year: "2021",
-    event: "Joined Technosec.io",
-    detail:
-      "Began working on the JupyterLab-based analytics platform and its test infrastructure.",
-  },
-  {
-    year: "2022",
-    event: "Core maintainer of the JupyterLab frontend extension",
-    detail:
-      "Custom file browser, a React/TypeScript design system, and the core plugin (a primary author).",
-  },
-  {
-    year: "2023",
-    event: "React Flow editor + AG Grid migration",
-    detail:
-      "Developed a custom pipeline-graph editor and led an AG Grid major-version migration (v27 → v35).",
-  },
-  {
-    year: "2024",
-    event: "Cross-origin notebook ↔ analytics integration",
-    detail:
-      "Three hosting modes behind an HMAC-SHA256 authenticated RPC bridge.",
-  },
-  {
-    year: "2025",
-    event: "Developed Rovanaut + merged open-source contributions",
-    detail:
-      "Notebook-native LLM agent (LangGraph, MCP, OpenAI vector search); merged PRs into JupyterLab core and Jupyter-AI.",
-  },
-]
-
-function SkillBadge({
-  name,
-  icon: Icon,
-  tag,
-  accent,
-  delay,
-  animate,
-}: {
-  name: string
-  icon: React.ComponentType<{ className?: string; size?: number }>
-  tag: string
-  accent: string
-  delay: number
-  animate: boolean
-}) {
-  return (
-    <div
-      className={`group flex items-center gap-2.5 rounded-lg border border-border/50 bg-secondary/30 px-3 py-2 transition-all duration-500 hover:border-border ${
-        animate ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div style={{ color: accent }}>
-        <Icon size={14} className="shrink-0 transition-colors duration-300" />
-      </div>
-      <span className="text-sm font-medium text-foreground">{name}</span>
-      <span
-        className="ml-auto shrink-0 rounded px-1.5 py-0.5 font-mono text-[10px] leading-none"
-        style={{
-          backgroundColor: `${accent}15`,
-          color: accent,
-        }}
-      >
-        {tag}
-      </span>
-    </div>
-  )
-}
-
 export default function SkillsSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const timelineRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, 0.05)
-  const isTimelineInView = useInView(timelineRef, 0.05)
-
   return (
-    <section id="skills" ref={sectionRef} className="relative px-6 py-32">
-      <div className="mx-auto max-w-6xl">
-        <div
-          className={`mb-16 transition-all duration-700 ${
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <p className="mb-3 font-mono text-sm text-primary">04 / Skills</p>
-          <h2 className="mb-6 text-3xl font-bold text-foreground md:text-5xl">
-            Technical expertise.
-          </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            From low-level infrastructure to high-level AI orchestration, a
-            comprehensive toolkit honed through real-world production systems.
-          </p>
+    <section id="skills" style={{ padding: "clamp(56px,7vw,80px) clamp(20px,4.5vw,48px) 0" }}>
+      <h2 className="sr-only">Skills</h2>
+      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 26 }}>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: ".1em", color: "#2dd4c8" }}>
+            [ 04 // SKILLS ]
+          </span>
+          <span style={{ flex: 1, height: 1, background: "rgba(148,168,190,.14)" }} />
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}>STACK</span>
         </div>
 
-        {/* Skill Domain Cards */}
-        <div className="mb-24 grid gap-6 md:grid-cols-2">
-          {skillDomains.map((domain, catIndex) => (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,420px),1fr))",
+            gap: 16,
+          }}
+        >
+          {categories.map((cat) => (
             <div
-              key={domain.title}
-              className={`glass-card glow-border rounded-xl p-6 transition-all duration-700 hover:border-border md:p-8 ${
-                isInView
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-              style={{ transitionDelay: `${catIndex * 150}ms` }}
+              key={cat.title}
+              style={{
+                background: "#10151d",
+                border: "1px solid rgba(148,168,190,.16)",
+                borderRadius: 8,
+                padding: 24,
+              }}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div
-                  className="rounded-lg p-2.5"
-                  style={{ backgroundColor: `${domain.accent}15` }}
-                >
-                  <domain.icon
-                    className="h-5 w-5"
-                    style={{ color: domain.accent }}
-                  />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {domain.title}
-                  </h3>
-                </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                <span style={{ width: 10, height: 10, background: cat.swatch }} />
+                <h3 style={{ margin: 0, fontSize: 15.5, fontWeight: 600 }}>{cat.title}</h3>
               </div>
-
-              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                {domain.context}
+              <p style={{ margin: "0 0 14px", fontSize: 12.5, lineHeight: 1.55, color: "#758495" }}>
+                {cat.description}
               </p>
-
-              <div className="grid gap-2 sm:grid-cols-2">
-                {domain.skills.map((skill, skillIndex) => (
-                  <SkillBadge
-                    key={skill.name}
-                    name={skill.name}
-                    icon={skill.icon}
-                    tag={skill.tag}
-                    accent={domain.accent}
-                    delay={catIndex * 150 + skillIndex * 40}
-                    animate={isInView}
-                  />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 8 }}>
+                {cat.chips.map((chip) => (
+                  <div
+                    key={chip.label}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      border: "1px solid rgba(148,168,190,.14)",
+                      background: "rgba(148,168,190,.04)",
+                      padding: "7px 10px",
+                      borderRadius: 5,
+                    }}
+                  >
+                    <span style={{ fontSize: 13 }}>{chip.label}</span>
+                    <span
+                      style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 10, color: cat.swatch }}
+                    >
+                      {chip.tier}
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Journey Timeline */}
-        <div ref={timelineRef}>
-          <div
-            className={`mb-12 transition-all duration-700 ${
-              isTimelineInView
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
-          >
-            <h3 className="mb-2 text-2xl font-bold text-foreground md:text-3xl">
-              Learning journey
-            </h3>
-            <p className="text-base text-muted-foreground">
-              Key milestones in my growth as an engineer.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-[7px] top-3 bottom-3 w-px bg-border md:left-1/2 md:-translate-x-px" />
-
-            <div className="space-y-8 md:space-y-12">
-              {milestones.map((milestone, index) => {
-                const isLeft = index % 2 === 0
-                return (
-                  <div
-                    key={milestone.year}
-                    className={`relative flex items-start gap-6 transition-all duration-700 md:gap-0 ${
-                      isTimelineInView
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }`}
-                    style={{ transitionDelay: `${index * 150}ms` }}
-                  >
-                    {/* Dot */}
-                    <div className="relative z-10 mt-1 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-primary bg-background md:absolute md:left-1/2 md:-translate-x-1/2" />
-
-                    {/* Content */}
-                    <div
-                      className={`flex-1 md:w-[calc(50%-2rem)] ${
-                        isLeft
-                          ? "md:ml-0 md:mr-auto md:pr-12 md:text-right"
-                          : "md:ml-auto md:mr-0 md:pl-12"
-                      }`}
-                    >
-                      <span className="mb-1 inline-block font-mono text-xs text-primary">
-                        {milestone.year}
-                      </span>
-                      <h4 className="mb-1 text-base font-semibold text-foreground">
-                        {milestone.event}
-                      </h4>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {milestone.detail}
-                      </p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
         </div>
       </div>
     </section>

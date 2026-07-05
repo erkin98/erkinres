@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 @layer base {
   :root {
     --background: 220 20% 7%;
@@ -63,47 +57,6 @@ body {
   overflow-x: hidden;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out forwards;
-}
-
-.glass-card {
-  background: hsla(220, 18%, 10%, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid hsla(220, 15%, 25%, 0.3);
-}
-
-.glow-text {
-  text-shadow: 0 0 40px hsla(175, 70%, 50%, 0.3);
-}
-
-.glow-border {
-  box-shadow: 0 0 20px hsla(175, 70%, 50%, 0.15), inset 0 0 20px hsla(175, 70%, 50%, 0.05);
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -113,4 +66,81 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ── Command-center shell ─────────────────────────────────────────────
+   Appended block wins by source order (equal specificity to the token-derived
+   body rule above); it is not a cascade-layer trick. */
+body {
+  background-color: #0c1016;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Corner brackets: top-left + bottom-right (hero terminal, featured project, contact) */
+.cc-corners { position: relative; }
+.cc-corners::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid #2dd4c8;
+  border-left: 2px solid #2dd4c8;
+  border-radius: 2px 0 0 0;
+}
+.cc-corners::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid #2dd4c8;
+  border-right: 2px solid #2dd4c8;
+  border-radius: 0 0 2px 0;
+}
+
+/* Top-left bracket only (the 4 stat cards) */
+.cc-corner-tl { position: relative; }
+.cc-corner-tl::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #2dd4c8;
+  border-left: 2px solid #2dd4c8;
+}
+
+/* Hover utilities — !important because an inline style attribute outranks a
+   class :hover rule in the cascade; these hosts set the same property inline. */
+.cc-navlink { padding: 4px 2px; }
+.cc-navlink:hover { color: #2dd4c8 !important; }
+.cc-card { transition: border-color 0.2s; }
+.cc-card:hover { border-color: rgba(45, 212, 200, 0.35) !important; }
+.cc-btn:hover { opacity: 0.88; }
+.cc-btn-ghost:hover { background: rgba(45, 212, 200, 0.08); }
+.cc-link:hover { color: #2dd4c8 !important; }
+.cc-detail-toggle { padding: 4px 0; }
+.cc-detail-toggle:hover { color: #dce6f0 !important; }
+
+/* Anchor targets clear the sticky status bar on scroll */
+#about,
+#experience,
+#projects,
+#skills,
+#changelog,
+#contact {
+  scroll-margin-top: 96px;
 }

@@ -1,97 +1,72 @@
-"use client";
-
-import { useRef } from "react";
-import { Github, Linkedin, Mail, Send, ArrowUpRight } from "lucide-react";
-import { useInView } from "@/hooks/use-in-view";
-
-const contactLinks = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "erkinqara@proton.me",
-    href: "mailto:erkinqara@proton.me",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/erkin98",
-    href: "https://github.com/erkin98",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/garayev",
-    href: "https://linkedin.com/in/garayev",
-  },
-];
+"use client"
 
 export default function ContactSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef);
-
   return (
-    <section id="contact" ref={sectionRef} className="relative px-6 py-32">
-      <div className="mx-auto max-w-4xl">
-        <div
-          className={`text-center transition-all duration-700 ${
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+    <section
+      id="contact"
+      style={{ padding: "clamp(64px,8vw,88px) clamp(20px,4.5vw,48px) clamp(64px,8vw,92px)" }}
+    >
+      <div
+        className="cc-corners"
+        style={{
+          position: "relative",
+          maxWidth: 760,
+          margin: "0 auto",
+          background: "#10151d",
+          border: "1px solid rgba(148,168,190,.16)",
+          borderRadius: 10,
+          padding: "clamp(28px,5vw,48px)",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ margin: "0 0 14px", fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: ".1em", color: "#2dd4c8" }}>
+          [ 06 // CONTACT ]
+        </p>
+        <h2 style={{ margin: "0 0 12px", fontFamily: "var(--font-mono)", fontSize: "clamp(22px,3vw,30px)", fontWeight: 600 }}>
+          initiate_contact()
+        </h2>
+        <p style={{ margin: "0 auto 30px", maxWidth: 480, fontSize: 14.5, lineHeight: 1.6, color: "#8a97a8" }}>
+          Open to new opportunities, AI architecture challenges, and innovative engineering problems.
+        </p>
+        <a
+          href="mailto:erkinqara@proton.me"
+          className="cc-btn"
+          style={{
+            display: "inline-block",
+            fontFamily: "var(--font-mono)",
+            fontSize: 13,
+            fontWeight: 600,
+            letterSpacing: ".04em",
+            background: "#2dd4c8",
+            color: "#071614",
+            padding: "16px 28px",
+            borderRadius: 6,
+            textDecoration: "none",
+          }}
         >
-          <p className="mb-3 font-mono text-sm text-primary">05 / Contact</p>
-          <h2 className="mb-6 text-3xl font-bold text-foreground md:text-5xl">
-            Let&apos;s build something
-            <br />
-            <span className="glow-text text-primary">extraordinary.</span>
-          </h2>
-          <p className="mx-auto mb-12 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-            I&apos;m always interested in discussing new opportunities, AI
-            architecture challenges, or innovative engineering problems.
-          </p>
-        </div>
-
-        <div
-          className={`grid gap-4 md:grid-cols-3 transition-all duration-700 ${
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-          style={{ transitionDelay: "200ms" }}
-        >
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.label !== "Email" ? "_blank" : undefined}
-              rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-              className="glass-card glow-border group flex flex-col items-center gap-3 rounded-xl p-6 transition-all duration-300 hover:border-primary/30"
-            >
-              <div className="rounded-lg bg-primary/10 p-3 transition-colors group-hover:bg-primary/20">
-                <link.icon className="h-5 w-5 text-primary" />
-              </div>
-              <span className="text-sm font-semibold text-foreground">
-                {link.label}
-              </span>
-              <span className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors group-hover:text-primary">
-                {link.value}
-                <ArrowUpRight size={12} />
-              </span>
-            </a>
-          ))}
-        </div>
-
-        <div
-          className={`mt-12 text-center transition-all duration-700 ${
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-          style={{ transitionDelay: "400ms" }}
-        >
+          [ erkinqara@proton.me ]
+        </a>
+        <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 24, flexWrap: "wrap" }}>
           <a
-            href="mailto:erkinqara@proton.me"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-primary/20"
+            className="cc-link"
+            href="https://github.com/erkin98"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495", textDecoration: "none" }}
           >
-            <Send size={16} />
-            Send me a message
+            github.com/erkin98 ↗
+          </a>
+          <a
+            className="cc-link"
+            href="https://linkedin.com/in/garayev"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495", textDecoration: "none" }}
+          >
+            linkedin.com/in/garayev ↗
           </a>
         </div>
       </div>
     </section>
-  );
+  )
 }

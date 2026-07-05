@@ -1,150 +1,102 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "about", href: "#about" },
+  { label: "experience", href: "#experience" },
+  { label: "projects", href: "#projects" },
+  { label: "skills", href: "#skills" },
+  { label: "contact", href: "#contact" },
 ]
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
-  const toggleButtonRef = useRef<HTMLButtonElement>(null)
+  const [clock, setClock] = useState("--:--:--")
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-
-      const sections = navItems.map((item) => item.href.slice(1))
-      for (const section of sections.reverse()) {
-        const el = document.getElementById(section)
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= 150) {
-            setActiveSection(section)
-            break
-          }
+    const onScroll = () => {
+      const ids = ["contact", "changelog", "skills", "projects", "experience", "about"]
+      let found = ""
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= 170) {
+          found = id
+          break
         }
       }
+      setActiveSection(found)
     }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   useEffect(() => {
-    if (isMobileMenuOpen && mobileMenuRef.current) {
-      const focusableElements = mobileMenuRef.current.querySelectorAll<HTMLElement>(
-        'a[href], button, [tabindex]:not([tabindex="-1"])'
-      )
-
-      if (focusableElements.length > 0) {
-        focusableElements[0].focus()
-      }
-
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape") {
-          setIsMobileMenuOpen(false)
-          toggleButtonRef.current?.focus()
-        }
-
-        if (e.key === "Tab") {
-          if (focusableElements.length === 0) return
-
-          const firstElement = focusableElements[0]
-          const lastElement = focusableElements[focusableElements.length - 1]
-
-          if (e.shiftKey && document.activeElement === firstElement) {
-            e.preventDefault()
-            lastElement.focus()
-          } else if (!e.shiftKey && document.activeElement === lastElement) {
-            e.preventDefault()
-            firstElement.focus()
-          }
-        }
-      }
-
-      document.addEventListener("keydown", handleKeyDown)
-      return () => document.removeEventListener("keydown", handleKeyDown)
-    } else if (!isMobileMenuOpen && toggleButtonRef.current && document.activeElement !== toggleButtonRef.current) {
-      toggleButtonRef.current.focus()
-    }
-  }, [isMobileMenuOpen])
+    const setNow = () => setClock(new Date().toUTCString().slice(17, 25))
+    setNow()
+    const iv = setInterval(setNow, 1000)
+    return () => clearInterval(iv)
+  }, [])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass-card py-3" : "py-6"
-      }`}
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: 10,
+        padding: "12px clamp(16px,3vw,28px)",
+        borderBottom: "1px solid rgba(148,168,190,.14)",
+        background: "rgba(10,14,19,.88)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
-        <a
-          href="#"
-          className="font-mono text-sm font-bold tracking-wider text-primary transition-colors hover:text-foreground"
-        >
-          {"<EQ />"}
-        </a>
+      <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, whiteSpace: "nowrap" }}>
+        <span style={{ color: "#2dd4c8" }}>erkin@portfolio</span>
+        <span style={{ color: "#5d6b7c" }}>:~$</span>{" "}
+        <span style={{ color: "#dce6f0" }}>./run --mode=recruiter</span>
+      </p>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${
-                activeSection === item.href.slice(1)
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {item.label}
-              {activeSection === item.href.slice(1) && (
-                <span className="absolute -bottom-1 left-0 h-px w-full bg-primary" />
-              )}
-            </a>
-          ))}
-        </div>
-
-        <button
-          ref={toggleButtonRef}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-foreground md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+      <nav aria-label="Primary" style={{ display: "flex", gap: "clamp(12px,2vw,22px)", flexWrap: "wrap" }}>
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            className="cc-navlink"
+            href={item.href}
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 12,
+              color: activeSection === item.href.slice(1) ? "#2dd4c8" : "#8a97a8",
+              textDecoration: "none",
+            }}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
 
-      {isMobileMenuOpen && (
-        <div
-          ref={mobileMenuRef}
-          id="mobile-menu"
-          className="glass-card mx-4 mt-2 rounded-lg p-4 md:hidden"
-        >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`block py-3 text-sm font-medium transition-colors ${
-                activeSection === item.href.slice(1)
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      )}
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <span style={{ display: "flex", alignItems: "center", gap: 7 }}>
+          <span
+            aria-hidden="true"
+            style={{
+              width: 7,
+              height: 7,
+              borderRadius: 999,
+              background: "#2dd4c8",
+              animation: "pulseDot 2s ease-in-out infinite",
+            }}
+          />
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#2dd4c8" }}>OPEN_TO_WORK</span>
+        </span>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495" }}>UTC {clock}</span>
+      </div>
     </header>
   )
 }
