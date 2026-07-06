@@ -15,8 +15,8 @@ const entries: Entry[] = [
   },
   {
     year: "2023",
-    title: "React Flow + AG Grid",
-    text: "Custom pipeline-graph editor; led AG Grid migration v27 → v35.",
+    title: "React Flow editor",
+    text: "Custom pipeline-graph editor with two-way ipywidgets/React state sync.",
   },
   {
     year: "2024",

@@ -6,7 +6,7 @@ const BULLETS = [
   "Primary author of the platform's JupyterLab frontend extension — custom file browser, a dozen-component React/TypeScript design system, and the core plugin entry point",
   "Built Datanout, a notebook-native LLM assistant — LangChain/LangGraph tool-calling agent, human-in-the-loop approval with resumable persisted interrupts, a full Model Context Protocol client, OpenAI vector-store file search, and AST-based code safety",
   "Architected a cross-origin notebook ↔ analytics integration across 3 hosting modes, secured by an HMAC-SHA256 authenticated RPC bridge",
-  "Built a custom React Flow pipeline-graph editor and led an AG Grid major-version migration (v27 → v35)",
+  "Built a custom React Flow pipeline-graph editor with a two-way ipywidgets/React state-sync layer that prevents echo loops",
   "Hardened filesystem, persistence, and lifecycle layers against path-traversal, SSRF, and environment-variable injection; enforced per-tenant session isolation",
   "Rebuilt the test suite on real fixtures (~1,000 tests) and decomposed a large coordinator class with zero behavior change",
   "Merged contributions to JupyterLab core (shipped in 4.2.0) and the Jupyter-AI agent stack",
