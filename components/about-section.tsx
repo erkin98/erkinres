@@ -8,8 +8,8 @@ const MODULES = [
   },
   {
     num: "02",
-    title: "Retrieval & Safety",
-    body: "OpenAI vector-store file search, cross-session memory, and an AST-based safety gate that blocks unsafe imports and calls in model-generated code.",
+    title: "Memory & Safety",
+    body: "Cross-session memory with summarization, prompt-injection screening, secret masking on tool output, and an AST-based safety gate that blocks unsafe imports and calls in model-generated code.",
   },
   {
     num: "03",
@@ -39,7 +39,7 @@ export default function AboutSection() {
           Building intelligent systems.
         </h2>
         <p style={{ margin: "0 0 28px", maxWidth: 640, fontSize: 15.5, lineHeight: 1.6, color: "#8a97a8" }}>
-          Senior Software Engineer with 4+ years at Technosec.io — JupyterLab-based analytics platform and
+          Senior Software Engineer with 5+ years at Technosec.io — JupyterLab-based analytics platform and
           notebook-native LLM tooling. Open-source contributor to JupyterLab and the Jupyter-AI ecosystem.
         </p>
 

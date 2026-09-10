@@ -14,7 +14,7 @@ const categories: SkillCategory[] = [
       { label: "LangChain", tier: "CORE" },
       { label: "Tool-Calling Agents", tier: "CORE" },
       { label: "MCP Protocol", tier: "ADV" },
-      { label: "Vector-Store Search", tier: "CORE" },
+      { label: "Prompt-Injection Screening", tier: "CORE" },
       { label: "Human-in-the-Loop", tier: "CORE" },
       { label: "Prompt Engineering", tier: "ADV" },
       { label: "Claude / OpenAI / Ollama", tier: "PROV" },
@@ -38,10 +38,10 @@ const categories: SkillCategory[] = [
   {
     title: "Testing & Quality",
     swatch: "#2dd4c8",
-    description: "Real-fixture test suites (~1,000 tests) and integration-first QA wired into CI/CD.",
+    description: "Real-fixture test suites and integration-first QA wired into CI/CD.",
     chips: [
       { label: "pytest", tier: "UNIT" },
-      { label: "Vitest", tier: "UNIT" },
+      { label: "Jest", tier: "UNIT" },
       { label: "Playwright", tier: "E2E" },
       { label: "Selenium", tier: "E2E" },
       { label: "Visual Regression", tier: "QA" },
@@ -51,14 +51,14 @@ const categories: SkillCategory[] = [
   {
     title: "DevOps & Infrastructure",
     swatch: "#38bdf8",
-    description: "CI/CD pipelines reducing deployment from hours to minutes, with parallel execution and Docker.",
+    description: "GitLab CI/CD with multi-stage Docker builds, deployed to AWS EC2 and S3.",
     chips: [
       { label: "CI/CD Pipelines", tier: "CORE" },
-      { label: "Jenkins", tier: "CI" },
+      { label: "AWS EC2 / S3", tier: "INFRA" },
       { label: "GitLab CI/CD", tier: "CI" },
       { label: "Docker", tier: "INFRA" },
       { label: "RESTful APIs", tier: "API" },
-      { label: "WebSocket", tier: "API" },
+      { label: "ZeroMQ", tier: "API" },
     ],
   },
 ]

@@ -5,8 +5,8 @@ import { useInView } from "@/hooks/use-in-view"
 import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 const STATS = [
-  { target: 4, suffix: "+", label: "YEARS_EXPERIENCE" },
-  { target: 5, suffix: "", label: "MERGED_OSS_PRS" },
+  { target: 5, suffix: "+", label: "YEARS_EXPERIENCE" },
+  { target: 6, suffix: "", label: "MERGED_OSS_PRS" },
   { target: 3, suffix: "", label: "UPSTREAM_ORGS" },
   { target: 60, suffix: "+", label: "PUBLIC_REPOS" },
 ]

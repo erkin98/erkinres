@@ -22,10 +22,10 @@ const projects: Project[] = [
       "LangChain/LangGraph tool-calling agent with token streaming",
       "Human-in-the-loop approval (allow / deny / ask) with SQLite-persisted, resumable interrupts",
       "Full Model Context Protocol client — pooling, per-server circuit breaker, SSRF/DNS-rebinding protection",
-      "OpenAI vector-store file search, cross-session memory, token-budgeted context trimming",
-      "AST-based safety gate and prompt-injection screening for model-generated code",
+      "Cross-session memory with summarization, token-budgeted context trimming",
+      "AST-based safety gate, prompt-injection screening, and secret masking for model-generated code",
     ],
-    tags: ["LangGraph", "MCP", "Python", "OpenAI", "AI Safety"],
+    tags: ["LangGraph", "MCP", "Python", "litellm", "AI Safety"],
   },
   {
     eyebrow: "3 HOSTING MODES · HMAC RPC",
@@ -54,17 +54,17 @@ const projects: Project[] = [
     tags: ["Python", "Cryptography", "ComfyUI", "SDXL"],
   },
   {
-    eyebrow: "FASTAPI · JWT · STREAMING",
-    title: "kishai — Authenticated LLM-Inference Service",
+    eyebrow: "PYTHON · EVAL · CI GATE",
+    title: "kishai — LLM Evaluation Harness",
     summary:
-      "A FastAPI service exposing streaming LLM inference over a local Ollama backend, with authentication, rate limiting, and strict typing.",
+      "A from-scratch LLM evaluation harness in Python: YAML golden-set suites scored deterministically and by an LLM-as-judge, with a replay mode that gates CI without a GPU.",
     details: [
-      "JWT + API-key auth, bcrypt hashing, role-based access",
-      "Server-sent-event streaming over async SQLAlchemy 2.0",
-      "Rate limiting and request-isolation middleware",
+      "YAML golden-set suites, deterministic + LLM-as-judge scoring",
+      "GPU-free replay mode gates continuous integration on model regressions",
+      "A change that degrades the model fails the build",
       "Strict MyPy typing and Ruff via uv / just tooling",
     ],
-    tags: ["FastAPI", "Python", "Ollama", "JWT"],
+    tags: ["Python", "Evals", "LLM-as-judge", "CI"],
   },
   {
     eyebrow: "NEXT.JS 15 / REACT 19",

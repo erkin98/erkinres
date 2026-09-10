@@ -97,7 +97,7 @@ export default function HeroSection() {
             </span>
           </h1>
           <p style={{ margin: "0 0 36px", maxWidth: 520, fontSize: 16, lineHeight: 1.65, color: "#8a97a8" }}>
-            4+ years shipping production software at Technosec.io — JupyterLab analytics platform, notebook-native LLM
+            5+ years shipping production software at Technosec.io — JupyterLab analytics platform, notebook-native LLM
             tooling, merged OSS upstream.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>

@@ -6,7 +6,7 @@ const entries: Entry[] = [
   {
     year: "2021",
     title: "Joined Technosec.io",
-    text: "Started building the JupyterLab analytics platform and its test infrastructure.",
+    text: "Joined the Agile team building the JupyterLab analytics platform; became primary author of its frontend extension and test infrastructure.",
   },
   {
     year: "2022",
