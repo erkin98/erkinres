@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Erkin Qarayev | Senior Software Engineer',
   description:
-    'Portfolio of Erkin Qarayev — Senior Software Engineer building a JupyterLab-based analytics platform and notebook-native LLM tooling (LangGraph agents, MCP), with merged contributions to JupyterLab and Jupyter-AI.',
+    'Portfolio of Erkin Qarayev — Senior Software Engineer building a JupyterLab-based analytics platform and notebook-native LLM tooling (a LangGraph agent, MCP), with merged contributions to JupyterLab and Jupyter-AI.',
 }
 
 export const viewport: Viewport = {

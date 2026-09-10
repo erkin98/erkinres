@@ -28,17 +28,16 @@ const projects: Project[] = [
     tags: ["LangGraph", "MCP", "Python", "litellm", "AI Safety"],
   },
   {
-    eyebrow: "3 HOSTING MODES · HMAC RPC",
-    title: "Cross-Origin Notebook Integration",
+    eyebrow: "FASTMCP · FIGMA · DESIGN-TO-CODE",
+    title: "PanelBoom — Design-to-Code Tool",
     summary:
-      "Connects a Tornado/Python notebook platform to a React/Vite analytics app across three hosting modes over a typed, bidirectional postMessage RPC bridge.",
+      "An internal tool that turns Figma mockups into working Panel and Python dashboards, so designers' work becomes dashboards without hand-coding.",
     details: [
-      "Typed bidirectional RPC bridge (Penpal) with strict origin validation",
-      "HMAC-SHA256 grant tokens, constant-time comparison, bounded replay cache",
-      "Kernel-location-agnostic: in-process and remote Jupyter Gateway kernels",
-      "SSRF / CSP / CSRF hardening with fail-closed origin allow-listing",
+      "Two Python FastMCP servers translating Figma designs into Panel and Python",
+      "A Next.js and Flask web app driving the conversion",
+      "Driven from Claude Code and Cursor",
     ],
-    tags: ["TypeScript", "Tornado", "React", "Security"],
+    tags: ["FastMCP", "Figma", "Panel", "Flask"],
   },
   {
     eyebrow: "AES-256-GCM · CLEAN ARCHITECTURE",
@@ -83,12 +82,12 @@ const projects: Project[] = [
     eyebrow: "JUPYTERLAB + JUPYTER-AI · MERGED",
     title: "Open-Source Contributions",
     summary:
-      "Merged contributions across the JupyterLab and Jupyter-AI agent ecosystem, plus fixes in review on the LiteLLM gateway.",
+      "Merged contributions across the JupyterLab core and the Jupyter-AI agent ecosystem.",
     details: [
       "JupyterLab core: file-browser fix shipped in release 4.2.0 (#16026)",
       "jupyter-ai-acp-client: agent-terminal hardening against env-var injection (#25) and attachment forwarding (#24)",
       "jupyter-ai-jupyternaut error handling (#42); jupyter-chat mimetype API (#383)",
-      "LiteLLM: streaming and Azure-auth fixes in review (#22085, #22696)",
+      "jupyter-chat: pycrdt minimum bump preventing silent tuple-to-null data loss (#385)",
     ],
     tags: ["JupyterLab", "Open Source", "Python", "TypeScript"],
   },

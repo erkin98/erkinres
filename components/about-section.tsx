@@ -18,8 +18,8 @@ const MODULES = [
   },
   {
     num: "04",
-    title: "Testing & Security",
-    body: "Real-fixture test suites and CI/CD, plus security hardening — HMAC-authenticated boundaries, SSRF/CSRF defense, and per-tenant isolation.",
+    title: "Testing & Safety",
+    body: "Selenium, Playwright and pytest suites run on every push through CI, plus Datanout's defense-in-depth safety stack — an AST gate on generated code, prompt-injection screening, and secret masking.",
   },
 ]
 

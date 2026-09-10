@@ -3,11 +3,14 @@
 const TAGS = ["LangGraph", "MCP", "FastAPI", "Tornado", "React", "TypeScript", "JupyterLab", "Python", "Security"]
 
 const BULLETS = [
-  "Primary author of the platform's JupyterLab frontend extension — custom file browser, a dozen-component React/TypeScript design system, and the core plugin entry point",
+  "Primary author of the platform's full-stack JupyterLab extension — a custom file browser, a from-scratch React/TypeScript widget library over Ant Design and AG Grid, a module-federation app-shell, and the core plugin entry point over a Python/Tornado backend, held across two major version upgrades",
   "Built Datanout, a notebook-native LLM assistant — LangChain/LangGraph tool-calling agent, human-in-the-loop approval with resumable persisted interrupts, a full Model Context Protocol client, prompt-injection screening, and AST-based code safety",
-  "Architected a cross-origin notebook ↔ analytics integration across 3 hosting modes, secured by an HMAC-SHA256 authenticated RPC bridge",
-  "Developed the platform's data-pipeline wizard, including a React Flow pipeline-graph editor with a two-way ipywidgets/React state-sync layer that prevents echo loops, now being rebuilt as a standalone FastAPI/Next.js/React app",
-  "Hardened filesystem, persistence, and lifecycle layers against path-traversal, SSRF, and environment-variable injection; enforced per-tenant session isolation",
+  "Developed the platform's data-pipeline wizard, including a React Flow pipeline-graph editor with two-way ipywidgets/React state sync, now being rebuilt as a standalone FastAPI/Next.js/React app (MVP in development)",
+  "Sole-authored two internal developer tools — a JupyterLab diagnostics/issue-reporter extension that files privacy-redacted Jira tickets, and a Python Redmine REST toolkit with a Typer CLI, a Textual TUI and an MCP server, across 506 tests",
+  "Configured the team's AI coding assistants (Claude Code, Cursor, GitHub Copilot) with custom instruction files and hooks that hold generated code to the codebase's conventions before review",
+  "Migrated the platform's data layer from SQLAlchemy to SQLModel on PostgreSQL, reworking the Alembic migrations, and implemented a ZeroMQ log transport between server extensions",
+  "Wrote a TypeScript-to-Python code-generation tool that turns widget type definitions into matching Pydantic classes and fails the build on any drift between the two sides",
+  "Diagnosed and fixed a platform-wide freeze where blocking kernel calls stalled the async event loop, moving kernel traffic onto a dedicated ZeroMQ channel to unblock concurrent users",
   "Owned the platform's test automation — Selenium and Playwright end-to-end tests plus a pytest suite, run on every push through CI",
   "Merged contributions to JupyterLab core (shipped in 4.2.0) and the Jupyter-AI agent stack",
 ]

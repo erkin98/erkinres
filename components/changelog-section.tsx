@@ -11,17 +11,17 @@ const entries: Entry[] = [
   {
     year: "2022",
     title: "Frontend extension",
-    text: "Custom file browser, React/TS design system, core plugin (primary author).",
+    text: "Custom file browser, a React/TS widget library over Ant Design and AG Grid, core plugin (primary author).",
   },
   {
     year: "2023",
-    title: "React Flow editor",
-    text: "Custom pipeline-graph editor with two-way ipywidgets/React state sync.",
+    title: "Pipeline wizard",
+    text: "Data-pipeline wizard with a React Flow editor and two-way ipywidgets/React state sync.",
   },
   {
     year: "2024",
-    title: "Cross-origin integration",
-    text: "Three hosting modes behind an HMAC-SHA256 authenticated RPC bridge.",
+    title: "Internal dev tools",
+    text: "Sole-authored a JupyterLab diagnostics/issue-reporter and a Redmine REST toolkit (CLI, TUI, MCP server, 506 tests).",
   },
   {
     year: "2025",
