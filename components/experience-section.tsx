@@ -10,7 +10,7 @@ const BULLETS = [
   "Configured the team's AI coding assistants (Claude Code, Cursor, GitHub Copilot) with custom instruction files and hooks that hold generated code to the codebase's conventions before review",
   "Migrated the platform's data layer from SQLAlchemy to SQLModel on PostgreSQL, reworking the Alembic migrations, and implemented a ZeroMQ log transport between server extensions",
   "Wrote a TypeScript-to-Python code-generation tool that turns widget type definitions into matching Pydantic classes and fails the build on any drift between the two sides",
-  "Diagnosed and fixed a platform-wide freeze where blocking kernel calls stalled the async event loop, moving kernel traffic onto a dedicated ZeroMQ channel to unblock concurrent users",
+  "Diagnosed and fixed a platform-wide freeze where blocking kernel calls stalled the async event loop, moving kernel traffic onto the kernel's IOPub channel to unblock concurrent users",
   "Owned the platform's test automation — Selenium and Playwright end-to-end tests plus a pytest suite, run on every push through CI",
   "Merged contributions to JupyterLab core (shipped in 4.2.0) and the Jupyter-AI agent stack",
 ]
@@ -47,7 +47,7 @@ export default function ExperienceSection() {
             }}
           >
             <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 15, color: "#2dd4c8" }}>
-              Technosec.io ↗
+              Gain Theory ↗
             </p>
             <h3 style={{ margin: "8px 0 6px", fontSize: 21, fontWeight: 700 }}>Senior Software Engineer</h3>
             <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495" }}>

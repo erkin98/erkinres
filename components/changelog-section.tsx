@@ -5,7 +5,7 @@ type Entry = { year: string; title: string; text: string }
 const entries: Entry[] = [
   {
     year: "2021",
-    title: "Joined Technosec.io",
+    title: "Joined Gain Theory",
     text: "Joined the Agile team building the JupyterLab analytics platform; became primary author of its frontend extension and test infrastructure.",
   },
   {
