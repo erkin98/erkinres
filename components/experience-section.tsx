@@ -49,7 +49,7 @@ export default function ExperienceSection() {
             <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 15, color: "#2dd4c8" }}>
               Gain Theory ↗
             </p>
-            <h3 style={{ margin: "8px 0 6px", fontSize: 21, fontWeight: 700 }}>Senior Software Engineer</h3>
+            <h3 style={{ margin: "8px 0 6px", fontSize: 21, fontWeight: 700 }}>Software Engineer</h3>
             <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495" }}>
               2021 — present
             </p>

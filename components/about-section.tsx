@@ -39,7 +39,7 @@ export default function AboutSection() {
           Building intelligent systems.
         </h2>
         <p style={{ margin: "0 0 28px", maxWidth: 640, fontSize: 15.5, lineHeight: 1.6, color: "#8a97a8" }}>
-          Senior Software Engineer with 5+ years at Gain Theory — JupyterLab-based analytics platform and
+          Software Engineer with 5+ years at Gain Theory — JupyterLab-based analytics platform and
           notebook-native LLM tooling. Open-source contributor to JupyterLab and the Jupyter-AI ecosystem.
         </p>
 

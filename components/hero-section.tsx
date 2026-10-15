@@ -5,7 +5,7 @@ import FxCanvas from "@/components/fx-canvas"
 import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 const roles = [
-  "Senior Software Engineer",
+  "Software Engineer",
   "Full-Stack Engineer",
   "AI / LLM Engineer",
   "Open-Source Contributor",
@@ -78,7 +78,7 @@ export default function HeroSection() {
               color: "#2dd4c8",
             }}
           >
-            <span style={{ color: "#5d6b7c" }}>{"//"}</span> SENIOR SOFTWARE ENGINEER
+            <span style={{ color: "#5d6b7c" }}>{"//"}</span> SOFTWARE ENGINEER
           </p>
           <h1
             style={{
@@ -163,17 +163,17 @@ export default function HeroSection() {
             <span
               style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}
             >
-              eq@technosec — zsh
+              eq@gain-theory — zsh
             </span>
           </div>
           <div style={{ padding: "22px 24px", fontFamily: "var(--font-mono)", fontSize: 13, lineHeight: 1.7 }}>
             <p className="sr-only">
-              role: Senior Software Engineer · Full-Stack Engineer · AI / LLM Engineer · Open-Source Contributor
+              role: Software Engineer · Full-Stack Engineer · AI / LLM Engineer · Open-Source Contributor
             </p>
             <p style={{ margin: 0 }}>
               <span style={{ color: "#2dd4c8" }}>$</span> <span style={cmd}>whoami</span>
             </p>
-            <p style={answer}>erkin.qarayev · senior software engineer</p>
+            <p style={answer}>erkin.qarayev · software engineer</p>
             <p style={{ margin: 0 }}>
               <span style={{ color: "#2dd4c8" }}>$</span> <span style={cmd}>current_focus</span>
             </p>
