@@ -66,6 +66,19 @@ const projects: Project[] = [
     tags: ["Python", "Evals", "LLM-as-judge", "CI"],
   },
   {
+    eyebrow: "TYPESCRIPT · AGENT SAFETY · IN PROGRESS",
+    title: "minitui — Safe Agent-Generated Terminal Apps",
+    summary:
+      "An in-progress TypeScript terminal agent that composes small apps from a frozen component allowlist instead of generating code, and checks every shell command on the host before it runs.",
+    details: [
+      "Host-side shell permission engine: tree-sitter-bash parser, deny-first rules, a non-overridable floor for network egress, secret reads and recursive deletes",
+      "Spec validation with a repair loop, and a streaming agent loop on the Vercel AI SDK",
+      "ANSI/OSC output sanitizer as the single chokepoint for untrusted terminal text",
+      "Nine-package monorepo with import-boundary lint and about 3,000 tests",
+    ],
+    tags: ["TypeScript", "Ink", "Agent Safety", "tree-sitter"],
+  },
+  {
     eyebrow: "NEXT.JS 15 / REACT 19",
     title: "Analytics Dashboard",
     summary:

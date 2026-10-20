@@ -5,11 +5,11 @@ const TAGS = ["LangGraph", "MCP", "FastAPI", "Tornado", "React", "TypeScript", "
 const BULLETS = [
   "Primary author of the platform's full-stack JupyterLab extension — a custom file browser, a from-scratch React/TypeScript widget library over Ant Design and AG Grid, a module-federation app-shell, and the core plugin entry point over a Python/Tornado backend, held across two major version upgrades",
   "Built Datanout, a notebook-native LLM assistant — LangChain/LangGraph tool-calling agent, human-in-the-loop approval with resumable persisted interrupts, a full Model Context Protocol client, prompt-injection screening, and AST-based code safety",
-  "Developed the platform's data-pipeline wizard, including a React Flow pipeline-graph editor with two-way ipywidgets/React state sync, now being rebuilt as a standalone FastAPI/Next.js/React app (MVP in development)",
+  "Developed the platform's data-pipeline wizard, including a React Flow pipeline-graph editor with two-way ipywidgets/React state sync, and worked on its rebuild as a standalone FastAPI/Next.js/React app (MVP in development at the time)",
   "Sole-authored two internal developer tools — a JupyterLab diagnostics/issue-reporter extension that files privacy-redacted Jira tickets, and a Python Redmine REST toolkit with a Typer CLI, a Textual TUI and an MCP server, across 506 tests",
   "Configured the team's AI coding assistants (Claude Code, Cursor, GitHub Copilot) with custom instruction files and hooks that hold generated code to the codebase's conventions before review",
   "Migrated the platform's data layer from SQLAlchemy to SQLModel on PostgreSQL, reworking the Alembic migrations, and implemented a ZeroMQ log transport between server extensions",
-  "Wrote a TypeScript-to-Python code-generation tool that turns widget type definitions into matching Pydantic classes and fails the build on any drift between the two sides",
+  "Wrote a TypeScript-to-Python code-generation tool that turns widget type definitions into matching Pydantic classes and flags any attribute the Python side is missing, keeping the two sides in sync",
   "Diagnosed and fixed a platform-wide freeze where blocking kernel calls stalled the async event loop, moving kernel traffic onto the kernel's IOPub channel to unblock concurrent users",
   "Owned the platform's test automation — Selenium and Playwright end-to-end tests plus a pytest suite, run on every push through CI",
   "Merged contributions to JupyterLab core (shipped in 4.2.0) and the Jupyter-AI agent stack",
@@ -25,7 +25,7 @@ export default function ExperienceSection() {
             [ 02 // EXPERIENCE ]
           </span>
           <span style={{ flex: 1, height: 1, background: "rgba(148,168,190,.14)" }} />
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}>2021 — PRESENT</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}>2021 — 2026</span>
         </div>
 
         <div
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
             </p>
             <h3 style={{ margin: "8px 0 6px", fontSize: 21, fontWeight: 700 }}>Software Engineer</h3>
             <p style={{ margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, color: "#758495" }}>
-              2021 — present
+              Sep 2021 — Jun 2026
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 18 }}>
               {TAGS.map((tag) => (

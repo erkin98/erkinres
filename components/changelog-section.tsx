@@ -28,6 +28,11 @@ const entries: Entry[] = [
     title: "Datanout + merged OSS",
     text: "Notebook-native LLM agent; merged PRs into JupyterLab core and Jupyter-AI.",
   },
+  {
+    year: "2026",
+    title: "minitui, open to work",
+    text: "Employment at Gain Theory ended in June. Building minitui (TypeScript, in progress) and the kishai evaluation harness; open to remote roles.",
+  },
 ]
 
 export default function ChangelogSection() {
@@ -40,7 +45,7 @@ export default function ChangelogSection() {
             [ 05 // CHANGELOG ]
           </span>
           <span style={{ flex: 1, height: 1, background: "rgba(148,168,190,.14)" }} />
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}>2021 → 2025</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#758495" }}>2021 → 2026</span>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 18 }}>
